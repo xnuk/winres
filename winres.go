@@ -109,6 +109,10 @@ func (rs *ResourceSet) WriteObject(w io.Writer, arch Arch) error {
 	return writeObject(w, rs, arch)
 }
 
+func (rs *ResourceSet) Write(w io.Writer) ([]int, error) {
+	return rs.write(w)
+}
+
 // Count returns the number of resources in the set.
 func (rs *ResourceSet) Count() int {
 	return rs.numDataEntries()
